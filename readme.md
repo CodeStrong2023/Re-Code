@@ -13,6 +13,6 @@ Este repositorio contiene el trabajo colaborativo del grupo Re-Code de la tecnic
 | Martinez Gonzalez	Ciro Valentin | 9517 |
 | Barrios Schallmoser	Juan José	| 9832 |
 | Antequera Julian	| 9178 |
-| ... | ... |
+| Gabriel Hidalgo | 9446 |
 | ... | ... |
 | ... | ... |
