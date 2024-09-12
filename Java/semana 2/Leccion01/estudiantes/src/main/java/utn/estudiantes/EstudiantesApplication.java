@@ -41,7 +41,6 @@ public class EstudiantesApplication implements CommandLineRunner {
 	}
 
 	private void mostrarMenu(){
-		logger.info(nl);
 		logger.info("""
 				**** Sistema de Estudiantes ****
 				1. Listar Estudiantes
@@ -53,4 +52,85 @@ public class EstudiantesApplication implements CommandLineRunner {
 				Elija una opcion:
 				""");
 	}
+
+	private boolean ejecutarOpciones(Scanner consola){
+		var opcion= Integer.parseInt(consola.nextLine());
+		var salir = false;
+		switch(opcion){
+			case 1 -> {
+				logger.info(nl+"Listando estudiantes..."+nl);
+				List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
+				estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
+			}
+			case 2 -> {
+				logger.info("Digite el id estudiante a buscar: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				Estudiantes2022 estudiante =
+						estudianteServicio.buscarEstudiante(idEstudiante);
+				if(estudiante != null){
+					logger.info("Estudiante encontrado: "+estudiante.toString()+nl);
+				} else logger.info("Estudiante no encontrado: "+ estudiante + nl);
+			}
+			case 3 -> {
+				logger.info("Agregar estudiante: "+nl);
+				logger.info("Nombre: ");
+				var nombre = consola.nextLine();
+				logger.info("Apellido: ");
+				var apellido = consola.nextLine();
+				logger.info("Correo: ");
+				var correo = consola.nextLine();
+				logger.info("Telefono: ");
+				var telefono = consola.nextLine();
+				var estudiante = new Estudiantes2022();
+				estudiante.setNombre(nombre);
+				estudiante.setApellido(apellido);
+				estudiante.setEmail(correo);
+				estudiante.setTelefono(telefono);
+				estudianteServicio.guardarEstudiante(estudiante);
+				logger.info("Estudiante agregado: "+estudiante.toString()+nl);
+			}
+			case 4 -> {
+				logger.info("Modificar estudiante: "+nl);
+				logger.info("Ingrese el id estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				Estudiantes2022 estudiante =
+						estudianteServicio.buscarEstudiante(idEstudiante);
+				if(estudiante != null){
+					logger.info("Nombre: ");
+					var nombre = consola.nextLine();
+					logger.info("Apellido: ");
+					var apellido = consola.nextLine();
+					logger.info("Correo: ");
+					var correo = consola.nextLine();
+					logger.info("Telefono: ");
+					var telefono = consola.nextLine();
+					estudiante.setNombre(nombre);
+					estudiante.setApellido(apellido);
+					estudiante.setEmail(correo);
+					estudiante.setTelefono(telefono);
+					estudianteServicio.guardarEstudiante(estudiante);
+					logger.info("Estudiante modificado: "+estudiante.toString()+nl);
+				}
+				else logger.info("Estudiante no encontrado: "+ estudiante + nl);
+			}
+			case 5 -> {
+				logger.info("Eliminar estudiante "+nl);
+				logger.info("Ingrese el id estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				var estudiante = estudianteServicio.buscarEstudiante(idEstudiante);
+				if(estudiante != null){
+					estudianteServicio.eliminarEstudiante(estudiante);
+					logger.info("Estudiante eliminado: "+estudiante.toString()+nl);
+				}
+				else logger.info("Estudiante no encontrado: "+estudiante + nl);
+			}
+			case 6 -> {
+				logger.info("Hasta pronto!!"+nl+nl);
+				salir = true;
+			}
+			default -> logger.info("opcion no reconocida"+ opcion+nl);
+		}return salir;
+	}
+
+
 }
