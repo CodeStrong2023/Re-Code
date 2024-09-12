@@ -40,4 +40,8 @@ Este repositorio contiene el trabajo colaborativo del grupo Re-Code de la tecnic
 | Antequera Julian	| 9178 |
 | Gabriel Hidalgo | 9446 |
 | Cabrera Giunta Pilar Agustina | 9241 |
-| ... | ... |
+| Caballero Gabriel Agustín | ... |
+| Mercado David | ... |
+| Francisco Tonidandel | ... |
+
+
