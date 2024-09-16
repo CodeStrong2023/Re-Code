@@ -16,7 +16,7 @@
 
 ### :raised_hands: Metodología de trabajo
 
-En este proyecto, hemos implementado una metodología de trabajo híbrida que combina los principios de SCRUM y KANBAN para optimizar nuestra eficiencia y productividad.  Nuestro equipo se organizará utilizando ramas de trabajo individuales, en las cuales realizaremos commits.  Una vez que el código haya sido verificado, se hará un merge a la rama principal
+En este proyecto, hemos implementado una metodología de trabajo híbrida que combina los principios de SCRUM y KANBAN para optimizar nuestra eficiencia y productividad.  Nuestro equipo se organizará utilizando ramas de trabajo individuales, en las cuales realizaremos commits.  Una vez que el código haya sido verificado, se hará un merge a la rama principal.
 
 Colaboración y transparencia
 -----------------------------
@@ -41,7 +41,7 @@ Este repositorio contiene el trabajo colaborativo del grupo Re-Code de la tecnic
 | Gabriel Hidalgo | 9446 |
 | Cabrera Giunta Pilar Agustina | 9241 |
 | Caballero Gabriel Agustín | ... |
-| Mercado David | ... |
+| Mercado David | 9538 |
 | Francisco Tonidandel | ... |
 
 
