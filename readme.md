@@ -41,7 +41,7 @@ Este repositorio contiene el trabajo colaborativo del grupo Re-Code de la tecnic
 | Gabriel Hidalgo | 9446 |
 | Cabrera Giunta Pilar Agustina | 9241 |
 | Caballero Gabriel Agustín | ... |
-| Mercado David | ... |
+| Mercado David | 9538 |
 | Francisco Tonidandel | ... |
 
 
