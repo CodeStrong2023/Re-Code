@@ -97,7 +97,7 @@ button:hover {
     background-color: #444;
 }
 
-/* Especifica las imágenes de fondo para cada personaje usando data-attribute */
+/* Especifica las imágenes de fondo */
 .personaje-img[data-personaje="zuko"] {
     background-image: url('zuko.png');
 }
@@ -122,4 +122,81 @@ button:hover {
 /* Oculta los radio buttons pero mantiene su funcionalidad */
 input[type="radio"] {
     display: none;
+}
+
+/* Boton de reglas se actualiza su posición a la derecha superior */
+#boton-reglas {
+    position: absolute;
+    top: 0px; 
+    right: 20px; 
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#boton-reglas:hover {
+    background-color: #444;
+}
+
+/* Oculta mensaje dinamico */
+#mensajes {
+    display: none;
+}
+
+/* Contenedor para las imágenes de los personajes durante el ataque */
+.lucha-ataque-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 50px;
+}
+
+/* Estilos para las imágenes de los personajes */
+.personaje-lucha {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para el texto "VS" */
+#vs-texto {
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}
+
+/* Estilo del mensaje dinamico */
+#mensajes {
+    max-height: 80px; 
+    overflow-y: auto; 
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+/* Para estilizar la barra de scroll */
+#mensajes::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+/* Color de la barra de scroll */
+#mensajes::-webkit-scrollbar-thumb {
+    background-color: #555; 
+    border-radius: 5px;
+}
+
+/* Color cuando se pasa el cursor por encima */
+#mensajes::-webkit-scrollbar-thumb:hover {
+    background-color: #333; 
 }

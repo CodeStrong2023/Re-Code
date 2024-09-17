@@ -18,10 +18,6 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
     });
 });
 
-
-
-
-
 function iniciarJuego() {
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
@@ -57,66 +53,61 @@ function mostrarReglas() {
 }
 
 function seleccionarPersonajeJugador() {
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display = 'block'; //mostramos
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+    sectionSeleccionarAtaque.style.display = 'block'; // Mostramos la sección de ataques
     document.getElementById('boton-reglas').style.display = 'none';
-    let sectionSeleccionarPersonaje = document.getElementById('seleccionar-personaje')
-    sectionSeleccionarPersonaje.style.display = 'none' //Ocultamos
-   
-    let inputZuko = document.getElementById('zuko')
-    let inputKatara = document.getElementById('katara')
-    let inputAang = document.getElementById('aang')
-    let inputToph = document.getElementById('toph')
-    let spanPersonajeJugador = document.getElementById('personaje-jugador')
+    let sectionSeleccionarPersonaje = document.getElementById('seleccionar-personaje');
+    sectionSeleccionarPersonaje.style.display = 'none'; // Ocultamos la selección de personajes
 
+    let inputZuko = document.getElementById('zuko');
+    let inputKatara = document.getElementById('katara');
+    let inputAang = document.getElementById('aang');
+    let inputToph = document.getElementById('toph');
+    let spanPersonajeJugador = document.getElementById('personaje-jugador');
 
-    document.getElementById("reglas-del-juego").style.display = "none";
-    document.getElementById('boton-reglas').style.display = 'none';
+    let jugadorImagen = document.getElementById('jugador-ataque');
+    let enemigoImagen = document.getElementById('enemigo-ataque');
 
+    // Verificar qué personaje ha sido seleccionado y actualizar su imagen
     if (inputZuko.checked) {
-        spanPersonajeJugador.innerHTML = 'Zuko'
+        spanPersonajeJugador.innerHTML = 'Zuko';
+        jugadorImagen.style.backgroundImage = "url('css/zuko.png')";
     } else if (inputKatara.checked) {
-        spanPersonajeJugador.innerHTML = 'Katara'
+        spanPersonajeJugador.innerHTML = 'Katara';
+        jugadorImagen.style.backgroundImage = "url('css/katara.png')";
     } else if (inputAang.checked) {
-        spanPersonajeJugador.innerHTML = 'Aang'
+        spanPersonajeJugador.innerHTML = 'Aang';
+        jugadorImagen.style.backgroundImage = "url('css/aang.png')";
     } else if (inputToph.checked) {
-        spanPersonajeJugador.innerHTML = 'Toph'
+        spanPersonajeJugador.innerHTML = 'Toph';
+        jugadorImagen.style.backgroundImage = "url('css/toph.png')";
     } else {
-        // Mostrar un mensaje temporal en la pantalla si no se ha seleccionado un personaje
-       
-        let mensajeError = document.createElement("p")
-        mensajeError.innerHTML = 'Selecciona un personaje'
-        mensajeError.style.color = "red"
-
-        //let seccionSeleccionarPersonaje = document.getElementById("seleccionar-personaje")
-        sectionSeleccionarPersonaje.appendChild(mensajeError)
-
-        // Eliminar el mensaje de error después de 2 segundos
-
-        setTimeout(() => {
-            sectionSeleccionarPersonaje.removeChild(mensajeError)
-        }, 2000)
-        reiniciarJuego()
-        return
+        mostrarModal('No se seleccionó un personaje. Por favor selecciona uno.');
+        sectionSeleccionarAtaque.style.display = 'none';
+        sectionSeleccionarPersonaje.style.display = 'block';
+        return;
     }
-    seleccinarPersonajeEnemigo()
-}
 
-function seleccinarPersonajeEnemigo() { //esta función va dentro de seleccionarPersonajeJugador() al final
-    let personajeAleatorio = aleatorio(1, 4) //A continuación creamos las variables para cada personaje
-    let spanPersonajeEnemigo = document.getElementById('personaje-enemigo')
+    // Seleccionar enemigo aleatoriamente y actualizar su imagen
+    let personajeAleatorio = aleatorio(1, 4); // Función para elegir personaje aleatorio
+    let spanPersonajeEnemigo = document.getElementById('personaje-enemigo');
 
-    //comenzamos con la lógica
     if (personajeAleatorio == 1) {
-        spanPersonajeEnemigo.innerHTML = 'Zuko'
+        spanPersonajeEnemigo.innerHTML = 'Zuko';
+        enemigoImagen.style.backgroundImage = "url('css/zuko.png')";
     } else if (personajeAleatorio == 2) {
-        spanPersonajeEnemigo.innerHTML = 'Katara'
+        spanPersonajeEnemigo.innerHTML = 'Katara';
+        enemigoImagen.style.backgroundImage = "url('css/katara.png')";
     } else if (personajeAleatorio == 3) {
-        spanPersonajeEnemigo.innerHTML = 'Aang'
+        spanPersonajeEnemigo.innerHTML = 'Aang';
+        enemigoImagen.style.backgroundImage = "url('css/aang.png')";
     } else {
-        spanPersonajeEnemigo.innerHTML = 'Toph'
+        spanPersonajeEnemigo.innerHTML = 'Toph';
+        enemigoImagen.style.backgroundImage = "url('css/toph.png')";
     }
 }
+
+
 
 function ataquePunio() { //Modificamos la variable global ataqueJugador
     ataqueJugador = 'Punio'
@@ -185,30 +176,31 @@ function revisarVidas(){
 }
 
 function crearMensajeFinal(resultado) {
-    let sectionReiniciar = document.getElementById('reiniciar')
-    sectionReiniciar.style.display = "block"
+    let sectionReiniciar = document.getElementById('reiniciar');
+    sectionReiniciar.style.display = "block";
 
-    let sectionMensaje = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
+    let sectionMensaje = document.getElementById('mensajes');
+    sectionMensaje.style.display = 'block';  // Mostrar la sección de mensajes
+    let parrafo = document.createElement('p');
 
-    parrafo.innerHTML = resultado
+    parrafo.innerHTML = resultado;
 
-    sectionMensaje.appendChild(parrafo)
-    let botonPunio = document.getElementById('boton-punio') //Ahora creamos un escuchador de eventos
-    botonPunio.disabled = true
-    let botonPatada = document.getElementById('boton-patada')
-    botonPatada.disabled = true
-    let botonBarrida = document.getElementById('boton-barrida')
-    botonBarrida.disabled = true
+    sectionMensaje.appendChild(parrafo);
+
+    // Deshabilitar botones de ataque
+    document.getElementById('boton-punio').disabled = true;
+    document.getElementById('boton-patada').disabled = true;
+    document.getElementById('boton-barrida').disabled = true;
 }
 
 function crearMensaje(resultado) {
-    let sectionMensaje = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
+    let sectionMensaje = document.getElementById('mensajes');
+    sectionMensaje.style.display = 'block';  // Mostrar la sección de mensajes
+    let parrafo = document.createElement('p');
 
-    parrafo.innerHTML = 'Tu personaje atacó con ' + ataqueJugador + ', el personaje del enemigo atacó con ' + ataqueEnemigo + ' ' + resultado
+    parrafo.innerHTML = 'Tu personaje atacó con ' + ataqueJugador + ', el personaje del enemigo atacó con ' + ataqueEnemigo + ' ' + resultado;
 
-    sectionMensaje.appendChild(parrafo)
+    sectionMensaje.appendChild(parrafo);
 }
 
 function reiniciarJuego(){
@@ -218,5 +210,7 @@ function reiniciarJuego(){
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+
 
 window.addEventListener('load', iniciarJuego)
