@@ -1,6 +1,6 @@
-from user import User
-from curso_from_pool import CursorFromPool
-from logger_base import log
+from person_data_layer.user import User
+from person_data_layer.curso_from_pool import CursorFromPool
+from person_data_layer.logger_base import log
 
 
 class UserDAO:

@@ -1,5 +1,5 @@
-from logger_base import log
-from connection import Connection
+from person_data_layer.logger_base import log
+from person_data_layer.connection import Connection
 
 
 class CursorFromPool:

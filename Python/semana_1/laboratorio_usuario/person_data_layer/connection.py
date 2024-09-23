@@ -1,5 +1,5 @@
 from psycopg2 import pool
-from logger_base import log
+from person_data_layer.logger_base import log
 import sys
 
 
