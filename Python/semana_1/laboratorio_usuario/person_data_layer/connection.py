@@ -4,9 +4,9 @@ import sys
 
 
 class Connection:
-    _DATABASE = "test_db"
+    _DATABASE = "users_test"
     _USERNAME = "postgres"
-    _PASSWORD = "admin"
+    _PASSWORD = "root"
     _DB_PORT = "5432"
     _HOST = "127.0.0.1"
     _MIN_CON = 1

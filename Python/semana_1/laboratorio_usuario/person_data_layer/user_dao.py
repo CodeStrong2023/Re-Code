@@ -9,10 +9,10 @@ class UserDAO:
     CRUD -> Create - Read - Update - Delete
     '''
 
-    _SELECT = 'SELECT * FROM user ORDER BY user_id'
-    _INSERT = 'INSERT INTO user(username, password) VALUES (%s, %s)'
-    _UPDATE = 'UPDATE user SET username=%s, password=%s WHERE user_id=%s'
-    _DELETE = 'DELETE FROM user WHERE user_id=%s'
+    _SELECT = 'SELECT * FROM "user" ORDER BY user_id'
+    _INSERT = 'INSERT INTO "user"(username, password) VALUES (%s, %s)'
+    _UPDATE = 'UPDATE "user" SET username=%s, password=%s WHERE user_id=%s'
+    _DELETE = 'DELETE FROM "user" WHERE user_id=%s'
 
     @classmethod
     def select(cls):
