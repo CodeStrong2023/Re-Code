@@ -4,10 +4,10 @@ from person_data_layer.logger_base import log
 
 
 class UserDAO:
-    '''
+    """
     DAO -> Data Access Object for the user table
     CRUD -> Create - Read - Update - Delete
-    '''
+    """
 
     _SELECT = 'SELECT * FROM "user" ORDER BY user_id'
     _INSERT = 'INSERT INTO "user"(username, password) VALUES (%s, %s)'
