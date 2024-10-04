@@ -1,5 +1,8 @@
 const shopContent = document.getElementById("shopContent");
 const cart = []; // Carrito vacío
+const mp = new MercadoPago("APP_USR-52c884a9-eb8e-4e46-a5af-af01a8950093", {
+  locale: "es-AR",
+});
 
 
 productos.forEach((product) => {
