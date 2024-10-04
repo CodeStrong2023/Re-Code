@@ -9,49 +9,49 @@ const productos = [
     {
         id: 2,
         productName: "Hacha",
-        price: 58,
+        price: 88,
         quanty: 1,
         img: "media/hacha.jpg"
     },
     {
         id: 3,
         productName: "Neumatico Dunlop",
-        price: 96,
+        price: 176,
         quanty: 1,
         img: "media/rueda.jpg"
     },
     {
         id: 4,
         productName: "Control Joystick PS5",
-        price: 99,
+        price: 399,
         quanty: 1,
         img: "media/control.jpg"
     },
     {
         id: 5,
         productName: "Mochila",
-        price: 14,
+        price: 190,
         quanty: 1,
         img: "media/mochila.jpg"
     },
     {
         id: 6,
         productName: "Celular Chamsun 22",
-        price: 140,
+        price: 180,
         quanty: 1,
         img: "media/celular.jpg"
     },
     {
         id: 7,
         productName: "Cartera",
-        price: 12,
+        price: 125,
         quanty: 1,
         img: "media/cartera.jpg"
     },
     {
         id: 8,
         productName: "Bolso",
-        price: 9,
+        price: 90,
         quanty: 1,
         img: "media/bolso.jpg"
     },
