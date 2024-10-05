@@ -2,28 +2,28 @@ const productos = [
     {
         id: 1,
         productName: "Zapatillas",
-        price: 169,
+        price: 1,
         quanty: 1,
         img: "media/zapatillas.jpg"
     },
     {
         id: 2,
         productName: "Hacha",
-        price: 58,
+        price: 1,
         quanty: 1,
         img: "media/hacha.jpg"
     },
     {
         id: 3,
         productName: "Neumatico Dunlop",
-        price: 176,
+        price: 1,
         quanty: 1,
         img: "media/rueda.jpg"
     },
     {
         id: 4,
         productName: "Control Joystick PS5",
-        price: 63999,
+        price: 1,
         quanty: 1,
         img: "media/control.jpg"
     },
@@ -37,7 +37,7 @@ const productos = [
     {
         id: 6,
         productName: "Celular Chamsun 22",
-        price: 142980,
+        price: 100,
         quanty: 1,
         img: "media/celular.jpg"
     },
