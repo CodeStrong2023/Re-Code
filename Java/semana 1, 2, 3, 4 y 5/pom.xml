@@ -1,12 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>utn</groupId>
+	<artifactId>estudiantes</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>estudiantes</name>
+	<description>Proyecto Sistema Estudiantes</description>
+	<properties>
+		<java.version>20</java.version>
+	 <maven.compiler.source>19</maven.compiler.source>
+	 <maven.compiler.target>19</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 
--- Comenzamos con CRUD: create(insertar), read(leer), update(actualizar), delete(eliminar)
--- Listar los estudiantes (read)
-SELECT * FROM estudiantes2022 order by idestudiantes2022;
--- Insertar estudiante
-INSERT INTO estudiantes2022(nombre, apellido, telefono, email) VALUES ("Juan", "Perez", "2615433453", "juan@mail.com");
--- Update (modificar)
-UPDATE estudiantes2022 SET nombre="Juan Carlos", apellido="Garcia" WHERE idestudiantes2022= 1;
--- Delete (eliminar)
-DELETE FROM estudiantes2022 WHERE idestudiantes2022=8;
--- Para modificar el idestudiantes2022 y comience en 1
-ALTER TABLE estudiantes2022 AUTO_INCREMENT = 1;
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
