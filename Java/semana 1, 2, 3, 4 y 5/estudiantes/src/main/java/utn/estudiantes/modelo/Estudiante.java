@@ -10,15 +10,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-// Boilerplate - Código Repetitivo
-@Data // Métodos Get & Set
-@NoArgsConstructor // Constructor sin argumentos
-@AllArgsConstructor // Constructor con todos los argumentos
-@ToString // Método To String de Lombok
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer idestudiante;
+    private Integer idestudiante;
     private String nombre;
     private String apellido;
     private String telefono;
