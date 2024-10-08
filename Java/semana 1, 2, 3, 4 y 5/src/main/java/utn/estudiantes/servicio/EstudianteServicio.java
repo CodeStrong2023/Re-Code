@@ -8,20 +8,20 @@ import utn.estudiantes.repositorio.EstudianteRepositorio;
 import java.util.List;
 
 @Service
-public class EstudianteServicio implements iEstudianteServicio{
+public class EstudianteServicio implements iEstudianteServicio {
     @Autowired
-    private EstudianteRepositorio estudianteRepositorio; //es el objeto que traemos
+    private EstudianteRepositorio estudianteRepositorio;
 
     @Override
-    public List<Estudiante> listarEstudiantes() { //Método listarEstudiantes - video 1
-        List<Estudiante> estudiantes = estudianteRepositorio.findAll(); //nos trae toda la lista de estudiantes
+    public List<Estudiante> listarEstudiantes() {
+        List<Estudiante> estudiantes = estudianteRepositorio.findAll();
         return estudiantes;
     }
 
     @Override
     public Estudiante buscarEstudianteporId(Integer idEstudiante) {
-        Estudiante estudiante = estudianteRepositorio.findById(idEstudiante).orElse(null); // findById es opcional si norecibe el id o regresa en este caso un null
-        return  estudiante;
+        Estudiante estudiante = estudianteRepositorio.findById(idEstudiante).orElse(null);
+        return estudiante;
     }
 
     @Override
@@ -32,5 +32,5 @@ public class EstudianteServicio implements iEstudianteServicio{
     @Override
     public void eliminarEstudiante(Estudiante estudiante) {
         estudianteRepositorio.delete(estudiante);
-    } //esta clase implementa la interface
+    }
 }
