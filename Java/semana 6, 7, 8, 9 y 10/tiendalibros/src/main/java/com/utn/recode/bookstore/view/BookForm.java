@@ -1,7 +1,7 @@
-package com.utn.recode.tiendalibros.view;
+package com.utn.recode.bookstore.view;
 
-import com.utn.recode.tiendalibros.modelo.Book;
-import com.utn.recode.tiendalibros.service.BookService;
+import com.utn.recode.bookstore.modelo.Book;
+import com.utn.recode.bookstore.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
