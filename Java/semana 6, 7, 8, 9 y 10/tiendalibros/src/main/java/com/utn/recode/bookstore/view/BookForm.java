@@ -14,6 +14,7 @@ import java.util.List;
 public class BookForm extends JFrame {
     BookService bookService;
     private JPanel panel;
+
     private JTable bookBoard;
 
     private DefaultTableModel bookBoardModel;

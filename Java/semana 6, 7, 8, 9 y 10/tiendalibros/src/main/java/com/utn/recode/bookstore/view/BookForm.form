@@ -29,10 +29,11 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="49b43" class="javax.swing.JTable" binding="bookBoard">
+          <component id="49b43" class="javax.swing.JTable" binding="bookBoard" custom-create="true">
             <constraints/>
             <properties>
               <autoCreateRowSorter value="true"/>
+              <fillsViewportHeight value="false"/>
             </properties>
             <clientProperties>
               <JTable.autoStartsEdit class="java.lang.Boolean" value="false"/>
