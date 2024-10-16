@@ -11,22 +11,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Libro {
-
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer idLibro;
-    String nombreLibro;
-    String autor;
-    Double precio;
-    Integer existencias;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    Integer id;
+    String name;
+    String author;
+    Double price;
+    Integer stock;
 }
