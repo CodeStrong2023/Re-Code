@@ -10,26 +10,26 @@ import java.util.List;
 @Service
 public class BookService implements IlBookService {
     @Autowired
-    private BookRepository libroRepositorio;
+    private BookRepository bookRepository;
 
     @Override
     public List<Book> getAll() {
-        return libroRepositorio.findAll();
+        return bookRepository.findAll();
     }
 
     @Override
     public Book searchById(Integer id) {
-        Book book = libroRepositorio.findById(id).orElse(null);
+        Book book = bookRepository.findById(id).orElse(null);
         return book;
     }
 
     @Override
     public void save(Book book) {
-        libroRepositorio.save(book);
+        bookRepository.save(book);
     }
 
     @Override
     public void delete(Book book) {
-        libroRepositorio.delete(book);
+        bookRepository.delete(book);
     }
 }
