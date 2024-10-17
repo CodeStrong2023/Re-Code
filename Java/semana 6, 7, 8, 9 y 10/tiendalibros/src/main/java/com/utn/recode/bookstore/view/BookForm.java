@@ -14,9 +14,15 @@ import java.util.List;
 public class BookForm extends JFrame {
     BookService bookService;
     private JPanel panel;
-
     private JTable bookBoard;
-
+    private JTextField bookAuthor;
+    private JTextField bookPrice;
+    private JTextField BookStock;
+    private JButton addButton;
+    private JButton editButton;
+    private JButton deleteButton;
+    private JTextField bookName;
+    
     private DefaultTableModel bookBoardModel;
 
     @Autowired
