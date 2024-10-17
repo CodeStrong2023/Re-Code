@@ -10,9 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 @Component
-public class BookForm extends JFrame{
+public class BookForm extends  JFrame {
 
     private final BookService bookService;
     private JPanel panel;
@@ -41,9 +40,11 @@ public class BookForm extends JFrame{
             this.bookTableModel.addRow(row);
         });
     }
+
     private void createUIComponents() {
-        textFieldId = new JTextField("");
-        textFieldId.setVisible(false);
+        panel = new JPanel(new BorderLayout());
+        this.textFieldId = new JTextField("");
+        this.textFieldId.setVisible(false);
         this.bookTableModel = new DefaultTableModel(0, 5){
             @Override
             public boolean isCellEditable(int row,int column){
@@ -54,10 +55,9 @@ public class BookForm extends JFrame{
         this.bookTableModel.setColumnIdentifiers(head);
 
         this.bookTable = new JTable(bookTableModel);
-        bookTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.bookTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         getAllBooks();
     }
-
     private void loadBook() {
         var row = bookTable.getSelectedRow();
         if (row != -1) {
@@ -171,3 +171,4 @@ public class BookForm extends JFrame{
     }
 
 }
+
