@@ -25,13 +25,17 @@ function conversacion(nombre, veces, callback){
             conversacion(nombre, --veces, callback);
         });
     } else {
-        adios(nombre, callback);
+        callback(nombre, callback);
     }
 }
 
 // --Proceso principal
 console.log('Iniciando proceso...');
-hola('Carlos', adios);
+hola('Carlos', function(nombre) {
+    conversacion(nombre, 4, function(){
+        console.log('Proceso terminado');
+    });
+});
 
 // hablar('Carlos', function(){
 //     hablar(function(){
