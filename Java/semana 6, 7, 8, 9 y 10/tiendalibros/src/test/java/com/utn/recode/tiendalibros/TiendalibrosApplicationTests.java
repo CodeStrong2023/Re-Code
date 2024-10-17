@@ -1,4 +1,4 @@
-package com.utn.recode.tiendalibros;
+package com.utn.recode.bookstore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

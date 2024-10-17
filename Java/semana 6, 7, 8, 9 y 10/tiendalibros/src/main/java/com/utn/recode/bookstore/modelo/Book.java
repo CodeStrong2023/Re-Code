@@ -1,4 +1,4 @@
-package com.utn.recode.tiendalibros.modelo;
+package com.utn.recode.bookstore.modelo;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

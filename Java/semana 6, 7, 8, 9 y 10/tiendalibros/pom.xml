@@ -9,10 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.utn.recode</groupId>
-	<artifactId>tiendalibros</artifactId>
+	<artifactId>bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tiendalibros</name>
-	<description>sistema de tienda de libros</description>
+	<name>bookstore</name>
 	<url/>
 	<licenses>
 		<license/>

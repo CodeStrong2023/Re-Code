@@ -1,6 +1,6 @@
-package com.utn.recode.tiendalibros.service;
+package com.utn.recode.bookstore.service;
 
-import com.utn.recode.tiendalibros.modelo.Book;
+import com.utn.recode.bookstore.modelo.Book;
 
 import java.util.List;
 
