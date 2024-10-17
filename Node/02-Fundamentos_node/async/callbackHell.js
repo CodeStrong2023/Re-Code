@@ -20,9 +20,13 @@ function adios(nombre, otroCallback){
 }
 
 function conversacion(nombre, veces, callback){
-    hablar(function(){
-        conversacion();
-    })
+    if(veces > 0){
+        hablar(function(){
+            conversacion(nombre, --veces, callback);
+        });
+    } else {
+        adios(nombre, callback);
+    }
 }
 
 // --Proceso principal
