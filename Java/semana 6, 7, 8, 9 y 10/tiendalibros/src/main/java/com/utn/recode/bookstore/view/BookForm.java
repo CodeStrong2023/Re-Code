@@ -8,87 +8,166 @@ import org.springframework.stereotype.Component;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.List;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @Component
-public class BookForm extends JFrame {
-    BookService bookService;
-    private JTable bookBoard;
-    private JTextField bookAuthor;
-    private JTextField bookPrice;
-    private JTextField bookStock;
-    private JButton addButton;
-    private JButton editButton;
-    private JButton deleteButton;
-    private JTextField bookName;
+public class BookForm extends JFrame{
+
+    private final BookService bookService;
     private JPanel panel;
+    private JButton deleteButton;
+    private JButton editButton;
+    private JButton addButton;
+    private JTextField textFieldId;
+    private JTextField textFieldStock;
+    private JTextField textFieldPrice;
+    private JTextField textFieldAuthor;
+    private JTextField textFieldName;
+    private JTable bookTable;
+    private DefaultTableModel bookTableModel;
 
-    private DefaultTableModel bookBoardModel;
-    private void format() {
-        setContentPane(panel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setSize(900, 700);
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension panelSize = toolkit.getScreenSize();
-        setLocation(
-                panelSize.width - getWidth() / 2,
-                panelSize.height - getHeight() / 2
-        );
-    }
-    private void showMessage(String msn){
-        JOptionPane.showMessageDialog(this, msn);
-    }
-
-    private void cleanForm(){
-        bookName.setText("");
-        bookAuthor.setText("");
-        bookPrice.setText("");
-        bookStock.setText("");
-    }
     private void getAllBooks() {
-        bookBoardModel.setRowCount(0);
-        List<Book> library = bookService.getAll();
-        library.forEach((book) -> {
-            Object[] bookFrame = {
+        bookTableModel.setRowCount(0);
+        var books = bookService.getAll();
+        books.forEach((book) -> {
+            Object [] row = {
                     book.getId(),
                     book.getName(),
                     book.getAuthor(),
                     book.getPrice(),
                     book.getStock()
             };
-            bookBoardModel.addRow(bookFrame);
+            this.bookTableModel.addRow(row);
         });
     }
-    private void addBook(){
-        if(bookName.getText().equals("")){
-            showMessage("text: book name");
-            bookName.requestFocusInWindow();
-            return;
-        }
-        String name = bookName.getText();
-        String author = bookAuthor.getText();
-        double price = Double.parseDouble(bookPrice.getText());
-        int stock = Integer.parseInt(bookStock.getText());
-        Book book = new Book(null, name, author, price, stock);
-        this.bookService.save(book);
-        showMessage("Se agrego el libro...");
-        cleanForm();
+    private void createUIComponents() {
+        textFieldId = new JTextField("");
+        textFieldId.setVisible(false);
+        this.bookTableModel = new DefaultTableModel(0, 5){
+            @Override
+            public boolean isCellEditable(int row,int column){
+                return false;
+            }
+        };
+        String[] head = {"Id", "Name", "Author", "Price", "Stock"};
+        this.bookTableModel.setColumnIdentifiers(head);
+
+        this.bookTable = new JTable(bookTableModel);
+        bookTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         getAllBooks();
     }
+
+    private void loadBook() {
+        var row = bookTable.getSelectedRow();
+        if (row != -1) {
+            String id = bookTable.getModel().getValueAt(row, 0).toString();
+            textFieldId.setText(id);
+            String name = bookTable.getModel().getValueAt(row, 1).toString();
+            textFieldName.setText(name);
+            String author = bookTable.getModel().getValueAt(row, 2).toString();
+            textFieldAuthor.setText(author);
+            String price = bookTable.getModel().getValueAt(row, 3).toString();
+            textFieldPrice.setText(price);
+            String stock = bookTable.getModel().getValueAt(row, 4).toString();
+            textFieldStock.setText(stock);
+        }
+    }
+
+    private void cleanTextField() {
+        textFieldName.setText("");
+        textFieldAuthor.setText("");
+        textFieldPrice.setText("");
+        textFieldStock.setText("");
+    }
+
+    private void showMessage(String msn) {
+        JOptionPane.showMessageDialog(this, msn);
+    }
+    private void addBook() {
+        if(textFieldName.getText().equals("")){
+            showMessage("insert book name");
+            textFieldName.requestFocusInWindow();
+            return;
+        }
+        var name = textFieldName.getText();
+        var author = textFieldAuthor.getText();
+        var price = Double.parseDouble(textFieldPrice.getText());
+        var stock = Integer.parseInt(textFieldStock.getText());
+        var book = new Book(null, name, author, price, stock);
+
+        this.bookService.save(book);
+        showMessage("add book to...");
+        cleanTextField();
+        getAllBooks();
+    }
+
+    private void deleteBook() {
+        var row = bookTable.getSelectedRow();
+        if (row != -1) {
+            String id = bookTable.getModel().getValueAt(row, 0).toString();
+            var book = new Book();
+            book.setId(Integer.parseInt(id));
+            bookService.delete(book);
+            showMessage("book "+id+" deleted");
+            cleanTextField();
+            getAllBooks();
+        }
+        else {
+            showMessage("must select a book in the table");
+        }
+    }
+
+    private void editBook() {
+        if (this.textFieldId.equals("")){
+            showMessage("must select a record in the table");
+        }
+        else {
+            if (textFieldName.getText().equals("")){
+                showMessage("insert book name");
+                textFieldName.requestFocusInWindow();
+                return;
+            }
+            int id = Integer.parseInt(textFieldId.getText());
+            var name = textFieldName.getText();
+            var author = textFieldAuthor.getText();
+            var price =Double.parseDouble(textFieldPrice.getText());
+            var stock = Integer.parseInt(textFieldStock.getText());
+            var book = new Book(id, name, author, price, stock);
+            bookService.save(book);
+            showMessage("to edit book...");
+            cleanTextField();
+            getAllBooks();
+        }
+    }
+
+    private void loadForm() {
+        setContentPane(panel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setSize(900,700);
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension panelSize = toolkit.getScreenSize();
+        setLocation(
+                (panelSize.width - getWidth()/2),
+                (panelSize.height - getHeight()/2)
+        );
+    }
+
     @Autowired
     public BookForm(BookService bookService) {
         this.bookService = bookService;
-        createUIComponents();
-        format();
+        loadForm();
         addButton.addActionListener(e -> addBook());
+        bookTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                loadBook();
+            }
+        });
+        editButton.addActionListener(e -> editBook());
+        deleteButton.addActionListener(e -> deleteBook());
     }
 
-    private void createUIComponents() {
-        bookBoardModel = new DefaultTableModel(0, 5);
-        String[] head = {"Id", "Libro", "Autor", "Precio", "Existencias"};
-        bookBoardModel.setColumnIdentifiers(head);
-        this.bookBoard = new JTable(bookBoardModel);
-        getAllBooks();
-    }
 }
