@@ -9,12 +9,14 @@ function adios(nombre, otroCallback){
     setTimeout(function(){
         console.log('Adios '+nombre);
         otroCallback();
-    }, 1000);
+    }, 1500);
 }
 
 console.log('Iniciando proceso...');
-hola('Carlos', function(){
-    adios('Carlos', function(){
-    console.log('Terminando proceso...');
-    });
-});
+// hola('Carlos', function(){
+//     adios('Carlos', function(){
+//         console.log('Terminando proceso...');
+//     });
+// });
+hola('Carlos', function(){});
+adios('Carlos', function(){});
