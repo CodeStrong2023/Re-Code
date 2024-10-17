@@ -19,17 +19,24 @@ function adios(nombre, otroCallback){
     }, 1500);
 }
 
+function conversacion(nombre, veces, callback){
+    hablar(function(){
+        conversacion();
+    })
+}
+
 // --Proceso principal
 console.log('Iniciando proceso...');
+hola('Carlos', adios);
 
-hablar('Carlos', function(){
-    hablar(function(){
-        hablar(function(){
-            hablar(function(){
-                adios(nombre, function(){
-                    console.log('Terminando proceso...');
-                });
-            });
-        });
-    });
-});
+// hablar('Carlos', function(){
+//     hablar(function(){
+//         hablar(function(){
+//             hablar(function(){
+//                 adios(nombre, function(){
+//                     console.log('Terminando proceso...');
+//                 });
+//             });
+//         });
+//     });
+// });
