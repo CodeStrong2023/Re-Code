@@ -146,12 +146,6 @@ public class BookForm extends  JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(900,700);
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension panelSize = toolkit.getScreenSize();
-        setLocation(
-                (0),
-                (0)
-        );
     }
 
     @Autowired
