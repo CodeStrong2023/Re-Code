@@ -1,10 +1,9 @@
 $primary-color: rgb(158, 156, 4);
 $secondary-color: rgb(25, 246, 5);
 $tertiary-color: rgb(241, 182, 21);
-$primary-tex-color: rgb(243, 247, 243);
+$primary-tex-color: rgb(0, 0, 0);
 $font-stack: "Oswald", sans-serif;
 $paragraph-size: 1,5em;
-
 
 
 body {
@@ -20,7 +19,7 @@ nav {
   color:$primary-tex-color;
   padding: 15px;
   p {
-    font-size: 1.5;
+    font-size: 2em;
     padding-left: 30px;
   }
   .icons {
@@ -74,11 +73,8 @@ article{
   .imagen-section{
       width: 50%;
       background-color: rgb(119, 109, 64);
-    
   }
 }
-
-
 footer {
   background-color: $tertiary-color;
   width: 100%;

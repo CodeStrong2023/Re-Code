@@ -8,11 +8,11 @@ nav {
   width: auto;
   display: flex;
   justify-content: space-between;
-  color: rgb(243, 247, 243);
+  color: rgb(0, 0, 0);
   padding: 15px;
 }
 nav p {
-  font-size: 1.5;
+  font-size: 2em;
   padding-left: 30px;
 }
 nav .icons {
@@ -32,7 +32,7 @@ main {
 
 article {
   width: auto;
-  color: rgb(243, 247, 243);
+  color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-around;
 }
