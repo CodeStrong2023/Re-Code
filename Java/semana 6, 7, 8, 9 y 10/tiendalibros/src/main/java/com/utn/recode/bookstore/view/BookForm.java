@@ -149,8 +149,8 @@ public class BookForm extends  JFrame {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension panelSize = toolkit.getScreenSize();
         setLocation(
-                (panelSize.width - getWidth()/2),
-                (panelSize.height - getHeight()/2)
+                (0),
+                (0)
         );
     }
 
