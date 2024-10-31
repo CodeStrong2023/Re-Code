@@ -7,3 +7,7 @@ setTimeout(() => {}) // Ejecuta una función después de un tiempo determinado
 setInterval(() => {}) // Ejecuta una función cada cierto tiempo
 
 setImmdiate(() => {}) // Ejecuta una función al final de la ejecución del event loop actual
+
+console.log(global) // Muestra en consola un objeto con todas las variables globales
+
+console.log(setInterval) // Muestra en consola la función setInterval
