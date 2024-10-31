@@ -29,11 +29,14 @@ async function adios(nombre){
 // await hola('Carlos'); mala sintaxis
 
 async function main(){
+    console.log("Iniciando el proceso...");
     let nombre = await hola('Carlos');
     await hablar();
     await hablar();
     await hablar();
     await adios(nombre);
+    console.log("Terminando el proceso...");
 }
 
+// console.log("Iniciando el proceso...");
 main();
