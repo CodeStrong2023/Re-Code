@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(241, 208, 115);
+  background-color: rgb(178, 162, 108);
   margin: 0;
   padding: 0;
   font-family: "Oswald", sans-serif;
@@ -9,7 +9,7 @@ nav {
   width: auto;
   display: flex;
   justify-content: space-evenly;
-  color: rgb(0, 0, 0);
+  color: rgb(10, 15, 10);
   padding: 15px;
 }
 nav p {
@@ -33,19 +33,19 @@ nav .icons .icon-container {
   flex-direction: column;
   justify-content: flex-end;
   align-items: stretch;
-  background-color: rgb(158, 156, 4);
+  background-color: rgb(100, 143, 103);
 }
 nav .icons .icon-container svg {
-  fill: rgb(108, 192, 100);
-  stroke: rgb(102, 149, 77);
+  fill: rgb(89, 125, 59);
+  stroke: rgb(106, 191, 164);
   stroke-width: 2;
   margin-right: auto;
 }
 
 article {
   width: auto;
-  color: rgb(0, 0, 0);
-  background-color: rgb(241, 208, 115);
+  color: rgb(10, 15, 10);
+  background-color: rgb(140, 137, 129);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -62,7 +62,6 @@ article .info-section {
 }
 article .image-section {
   width: auto;
-  background-color: rgb(241, 208, 115);
   padding-left: 50px;
 }
 article h1 {
@@ -95,7 +94,7 @@ section {
   padding: 60px;
 }
 section h2 {
-  color: rgb(0, 0, 0);
+  color: rgb(10, 15, 10);
   font-size: 2em;
 }
 section .seccion1 h2, section .seccion2 h2 {
@@ -115,8 +114,8 @@ section .seccion1 .cart-section, section .seccion2 .cart-section {
 section .seccion1 .product-cart, section .seccion2 .product-cart {
   width: 14vw;
   height: 45vh;
-  background-color: rgb(108, 192, 100);
-  color: rgb(0, 0, 0);
+  background-color: rgb(89, 125, 59);
+  color: rgb(10, 15, 10);
   padding: 20px;
   border-radius: 8px;
 }
@@ -129,8 +128,8 @@ section .seccion1 .product-cart .icons, section .seccion2 .product-cart .icons {
 section .seccion1 .product-cart .icons svg, section .seccion2 .product-cart .icons svg {
   width: 28px;
   height: 28px;
-  stroke: olive;
-  stroke-width: yellow;
+  stroke: rgb(171, 171, 61);
+  stroke-width: rgb(168, 168, 95);
 }
 section .seccion1 .product-cart .product-image, section .seccion2 .product-cart .product-image {
   width: 100%;
@@ -146,16 +145,16 @@ section .seccion1 .product-cart .product-image img, section .seccion2 .product-c
   border-radius: 6px;
 }
 section .seccion2 .product-cart {
-  background-color: rgb(144, 127, 79);
+  background-color: rgb(182, 210, 84);
   color: rgb(37, 51, 12);
 }
 
 main {
-  background-color: rgb(158, 156, 4);
+  background-color: rgb(100, 143, 103);
 }
 
 footer {
-  background-color: rgb(199, 116, 20);
+  background-color: rgb(151, 111, 66);
   width: 100%;
   height: 250px;
 }
