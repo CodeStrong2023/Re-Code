@@ -22,6 +22,7 @@ def run():
     countries = df['Country'].values
     percentages = df['World Population Percentage'].values
     country = input('Type Country => ')
+    charts.generate_pie_chart(countries, percentages)
     result = utils.population_by_country(data, country)
     if len(result) > 0:
         country = result[0]
